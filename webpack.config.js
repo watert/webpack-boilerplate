@@ -1,28 +1,34 @@
 var webpack = require('webpack')
-module.exports = {
+var ExtractTextPlugin = require("extract-text-webpack-plugin")
+
+var config = {
     // configuration
     context: __dirname,
-    entry: "./entry.js",
+    entry: {
+        base: "./src/base",
+        main: "./src/main.coffee",
+    },
     devtool: "#source-map",
     output: {
-        // sourceMapFilename:"bundle.js.map",
-        path: __dirname + "/public/",
-        filename: "bundle.js"
+        path: __dirname + "/dist",
+        filename: "[name].bundle.js",
+        chunkFilename: "[id].bundle.js"
     },
     module:{
         loaders:[
+            {   test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                loader:"babel-loader",
+            },
             { test: /\.coffee$/, loader:"coffee-loader" },
-            {
-              test: /\.js$/,
-              exclude: /(node_modules|bower_components)/,
-              loader: 'babel'
-            }
-        ]},
+            { test: /\.less$/,
+                loader:ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
+            },
+        ]
+    },
     plugins: [
-        // new webpack.optimize.UglifyJsPlugin({
-        //     compress: {
-        //         warnings: false
-        //     }
-        // })
+        new ExtractTextPlugin("[name].css", {allChunks:true}),
     ]
 };
+
+module.exports = config;
