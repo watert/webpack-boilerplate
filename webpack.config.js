@@ -5,7 +5,7 @@ var config = {
     // configuration
     context: __dirname,
     entry: {
-        base: "./src/base",
+        base: "./src/base.coffee",
         main: "./src/main.coffee",
     },
     devtool: "#source-map",

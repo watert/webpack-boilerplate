@@ -40,13 +40,36 @@
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
+/***/ function(module, exports, __webpack_require__) {
+
+	var app;
+	
+	app = __webpack_require__(6);
+
+
+/***/ },
+
+/***/ 6:
 /***/ function(module, exports) {
 
+	var App;
 	
+	App = (function() {
+	  function App(options) {}
+	
+	  return App;
+	
+	})();
+	
+	console.log("APP");
+	
+	module.exports = App;
 
 
 /***/ }
-/******/ ]);
+
+/******/ });
 //# sourceMappingURL=main.bundle.js.map

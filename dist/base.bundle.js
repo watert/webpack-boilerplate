@@ -44,14 +44,22 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	var $, Backbone, _;
 	
-	var $ = __webpack_require__(1);
-	var Backbone = __webpack_require__(2);
-	var _ = __webpack_require__(4);
+	$ = __webpack_require__(1);
 	
-	_.extend(window, { _: _, $: $, Backbone: Backbone });
+	Backbone = __webpack_require__(2);
+	
+	_ = __webpack_require__(4);
+	
+	_.extend(window, {
+	  _: _,
+	  $: $,
+	  Backbone: Backbone
+	});
+	
 	__webpack_require__(5);
+
 
 /***/ },
 /* 1 */
